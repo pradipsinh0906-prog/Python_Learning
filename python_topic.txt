@@ -1,0 +1,5 @@
+What is query:- 
+a = "vivek pradip  meetraj"
+print(a[3:11:-1])
+
+what is complex ?
