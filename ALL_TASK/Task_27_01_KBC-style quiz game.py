@@ -1,3 +1,4 @@
+import random
 class KBC:
     def __init__(self):
         self.questions = [
@@ -67,6 +68,8 @@ class KBC:
         
     def play_game(self):
         print("Welcome to KAUN BANEGA CROREPATI \n")
+        
+        random.shuffle(self.questions)
         
         for i in range(len(self.questions)):
             q = self.questions[i]
