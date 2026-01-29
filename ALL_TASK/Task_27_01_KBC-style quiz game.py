@@ -5,66 +5,61 @@ class KBC:
             {
                 "question": "Who is the Prime Minister of India?",
                 "options": ["A. Narendra Modi", "B. Rahul Gandhi", "C. Amit Shah", "D. Arvind Kejriwal"],
-                "answer": "A",
-                "amount": 1000
+                "answer": "A"
             },
             {
                 "question": "Which language is used to create websites?",
                 "options": ["A. Python", "B. HTML", "C. Java", "D. C++"],
-                "answer": "B",
-                "amount": 5000
+                "answer": "B"
             },
             {
                 "question": "What is the capital of India?",
                 "options": ["A. Mumbai", "B. Kolkata", "C. New Delhi", "D. Chennai"],
-                "answer": "C",
-                "amount": 10000
+                "answer": "C"
             },
             {
                 "question": "Which company owns Instagram?",
                 "options": ["A. Google", "B. Microsoft", "C. Meta", "D. Twitter"],
-                "answer": "C",
-                "amount": 50000
+                "answer": "C"
             },
             {
                 "question": "Which planet is known as the Red Planet?",
                 "options": ["A. Earth", "B. Mars", "C. Jupiter", "D. Venus"],
-                "answer": "B",
-                "amount": 100000
+                "answer": "B"
             },
             {
                 "question": "Who invented Python?",
                 "options": ["A. Dennis Ritchie", "B. James Gosling", "C. Guido van Rossum", "D. Elon Musk"],
-                "answer": "C",
-                "amount": 500000
+                "answer": "C"
             },
             {
                 "question": "Which keyword is used to define a function in Python?",
                 "options": ["A. func", "B. define", "C. def", "D. function"],
-                "answer": "C",
-                "amount": 1000000
+                "answer": "C"
             },
             {
                 "question": "What is the result of 10 // 3?",
                 "options": ["A. 3.33", "B. 3", "C. 4", "D. Error"],
-                "answer": "B",
-                "amount": 2500000
+                "answer": "B"
             },
             {
                 "question": "Which data type is immutable?",
                 "options": ["A. List", "B. Set", "C. Dictionary", "D. Tuple"],
-                "answer": "D",
-                "amount": 5000000
+                "answer": "D"
             },
             {
                 "question": "Which symbol is used for comments in Python?",
                 "options": ["A. //", "B. <!-- -->", "C. #", "D. **"],
-                "answer": "C",
-                "amount": 70000000
+                "answer": "C"
             }
         ]
         
         self.total_amount = 0
+        
+        self.prizes = [
+            1000, 5000, 10000, 50000, 100000,
+            500000, 1000000, 2500000, 5000000, 70000000
+        ]
         
     def play_game(self):
         print("Welcome to KAUN BANEGA CROREPATI \n")
@@ -81,7 +76,7 @@ class KBC:
             user_ans = input("Enter your answer (A/B/C/D): ").upper()
             
             if user_ans == q["answer"]:
-                self.total_amount = q["amount"]
+                self.total_amount += self.prizes[i]
                 print("Correct Answer!")
                 print(f"You Won ₹{self.total_amount:,}")
                 
@@ -89,6 +84,11 @@ class KBC:
             
             else:
                 print("Wrong Answer!")
+                self.total_amount -= 500
+                
+                if self.total_amount < 0:
+                    self.total_amount = 0
+                    
                 print(f"Total Winning Amount : ₹{self.total_amount:,}")
                 break
         
